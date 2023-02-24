@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+   <header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44"
+                    viewBox="0 0 44 44">
+                    <image id="logo" width="44" height="44"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFwGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOSwgMjAyMS8xMi8wOC0xOToxMToyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDEtMjNUMTI6NDI6NDIrMDM6MzAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTAxLTIzVDEyOjQ0OjQ1KzAzOjMwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTAxLTIzVDEyOjQ0OjQ1KzAzOjMwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjUyMDU4MjYxLWIwZWYtODE0My1iZDgwLWE1ZGUwODQzZmQ0YyIgeG1w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" />
+                </svg>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">تماس با ما </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">گواهینامه‌ها </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">درباره‌ما </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">محصولات </a>
+                    </li>
+                     <li class="nav-item ">
+                        <a class="nav-link" href="#">پروژه‌ها </a>
+                    </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="#">صفحه‌اصلی <span class="sr-only">(current)</span></a>
+                    </li>
+                   
+                </ul>
+               
+            </div>
+        </nav>
+    </div>
+   </header>
+
+    <section style="overflow-x: hidden;">
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt=""  width="100%" style="max-height: 460px;object-fit: cover;">
+                </div>
+                <div class="swiper-slide"><img src="./assets/img/istockphoto-1385118921-612x612.jpg" alt=""  width="100%" style="max-height: 460px;object-fit: cover;"></div>
+                <div class="swiper-slide"><img src="./assets/img/istockphoto-1438530575-612x612.jpg" alt=""  width="100%" style="max-height: 460px;object-fit: cover;"></div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+    </section>
+
+
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <div class="text-center">
+                <p class="font-weight-bold">لورم ایپسوم متن ساختگی</p>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
+                    و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
+                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                    کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
+                    افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی
+                    ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
+                    به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
+                    طراحی اساسا مورد استفاده قرار گیرد</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light pb-5">
+        <h6 class="pt-4 pb-4 text-center">لورم ایپسوم متن ساختگی</h6>
+        <div class="container">
+            <div class="row row-cols-1 g-4 text-right">
+                <div class="col pt-3">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class="col">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt=""  width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col pt-3">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class="col order-1 order-lg-2">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt=""  width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col order-2 order-lg-1">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col pt-3">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class="col">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt=""  width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col pt-3">
+                    <div class="row row-cols-1 row-cols-lg-2">
+                        <div class="col order-1 order-lg-2">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt=""  width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col order-2 order-lg-1">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-image p-md-5">
+        <div class="container">
+            <div class="text-center">
+                <h5>لورم ایپسوم متن ساختگی</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                    <button class="play-btn rounded-circle d-inline-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                      </svg></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light text-center">
+        <div class="container">
+            <h6 class="pt-4 pb-4">لورم ایپسوم متن ساختگی</h6>
+            <div class="row row-cols-1 g-4 row-cols-md-2 row-cols-lg-3">
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items"  style="min-height: 200px;">
+                        <span>لورم ایپسوم</span>
+                        <ul class="d-md-none">
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                            <li>لورم</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-4 pt-4" style="background-color: #707070;">
+        <div class="container">
+            <div class="text-center p-2 p-md-4 bg-light">
+                <h4 class="text-warning">لورم ایپسوم متن ساختگی</h4>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است</p>
+                <a href="" class="btn btn-outline-dark">لورم ایپسوم</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h6 class="pt-4 pb-4 text-center">لورم ایپسوم متن ساختگی</h6>
+            <div class="row row-cols-1 g-4 text-right">
+                <div class="col mb-3">
+                    <div class="row">
+                        <div class="col-12 col-lg-10">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt="" width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-lg-2 floating right">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="row justify-content-lg-end">
+                        <div class="col-12 col-lg-10">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt="" width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-lg-2 floating left">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="row">
+                        <div class="col-12 col-lg-10 ">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt="" width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-lg-2 floating right">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="row justify-content-lg-end">
+                        <div class="col-12 col-lg-10">
+                            <img src="./assets/img/istockphoto-1365749410-612x612.jpg" alt="" width="100%" style="max-height: 450px;object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-lg-2 floating left">
+                            <h6 class="mt-3 text-warning">لورم ایپسوم</h6>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                سطرآنچنان که لازم است و برای شرایط فعلی
+                                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت
+                                و سه درصد گذشته، حال و آینده شناخت فراوان
+                                جامعه و متخصصان را می طلبد تا با نرم افزارها
+                                شناخت بیشتری را برای طراحان رایانه ای علی
+                                الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان
+                                فارسی ایجاد کرد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-4 pt-4">
+        <div class="container">
+            <div class="text-center">
+                <h5>با ما تماس بگیرید</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از 
+                    صنعت چاپ و با استفاده از طراحان گرافیک است. 
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و 
+                    سطرآنچنان که لازم است و برای شرایط فعلی 
+                    تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود 
+                    ابزارهای کاربردی می باشد. کتابهای زیادی در شصت 
+                    و سه درصد گذشته، حال و آینده شناخت فراوان 
+                    جامعه و متخصصان را می طلبد تا با نرم افزارها 
+                    شناخت بیشتری را برای طراحان رایانه ای علی 
+                    الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان 
+                    فارسی ایجاد کرد</p>
+
+                    <ul class="d-flex align-items-center justify-content-between col-12 col-md-9 m-auto flex-column g-3 flex-md-row">
+                        <li class="w-75 w-md-auto p-md-3 mt-3"><a href="" class="btn btn-outline-dark w-100 ">تلفن</a></li>
+                        <li class="w-75 w-md-auto p-md-3 mt-3"><a href="" class="btn btn-outline-warning w-100 " >واتساپ</a></li>
+                        <li class="w-75 w-md-auto p-md-3 mt-3"><a href="" class="btn btn-outline-dark w-100">ایمیل</a></li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="bg-dark mt-5 pt-md-5">
+        <div class="container">
+            <div class="border-bottom">
+                <ul class="footer-links">
+                    <li><a href="">فضاها</a></li>
+                    <li><a href="">واژه‌نامه</a></li>
+                    <li><a href="">کاتالوگ‌ها</a></li>
+                    <li><a href="">بلاگ</a></li>
+                    <li><a href="">محصولات</a></li>
+                    <li><a href="">معماری</a></li>
+                </ul>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2  text-white pt-3 ">
+                <div class="col">
+                    <p class="text-center text-md-left">.تمامی حقوق این وب سایت متعلق به شرکت سفارش دهنده می‌باشد</p>
+                </div>
+                <div class="col text-center text-md-right">
+                    <p>طراحی سایت توسط شرکت سفارش گیرنده</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/swiper.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+        });
+    </script>
+</body>
+
+</html>
